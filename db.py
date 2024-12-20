@@ -9,11 +9,15 @@ def get_database():
     return client['jobs']
 
 
-def insert_jobs(collection, job_listings):
+def insert_jobs(collection, job_listings) -> list:
+    job_notification = []
     for job in job_listings:
         job_id = job['id']
-        collection.update_one(
+        result = collection.update_one(
             {'id': job_id},
             {'$setOnInsert': job},
             upsert=True
         )
+        if result.upserted_id:
+            job_notification.append(job)
+    return job_notification
