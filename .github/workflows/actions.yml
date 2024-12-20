@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 8 * * *' # At 08:00 everyday
+    - cron: '0 8,20 * * *' # At 08:00 AM/PM everyday
 
 jobs:
   build:
