@@ -11,11 +11,10 @@ def get_jobs():
     db = get_database()
     collection = db['daily_dump']
     flattened_jobs = list(chain(*jobs))
+    print(f'Fetched {len(flattened_jobs)} jobs')
     job_notifications = insert_jobs(collection, flattened_jobs)
-    if job_notifications:
-        asyncio.run(send_notification(job_notifications))
-    else:
-        print('No new jobs found')
+    print(f'Found {len(job_notifications)} new jobs')
+    asyncio.run(send_notification(job_notifications))
 
 if __name__ == "__main__":
     get_jobs()

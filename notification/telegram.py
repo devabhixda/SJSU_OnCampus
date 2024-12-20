@@ -31,3 +31,5 @@ async def send_notification(job_notification):
             print("Message sent successfully!")
         except Exception as e:
             print(f"Error sending message: {e}")
+    if not job_notification:
+        await bot.send_message(chat_id=Secrets.chat_id, text="No new Job Openings!")
