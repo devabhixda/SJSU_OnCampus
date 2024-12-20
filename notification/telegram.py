@@ -1,7 +1,7 @@
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 
-from secrets import Secrets
-from utils import date_convert_iso
+from constants.secrets import Secrets
+from utils.utils import date_convert_iso
 
 
 def format_job_message(job):

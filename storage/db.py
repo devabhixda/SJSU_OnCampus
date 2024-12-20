@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-from secrets import Secrets
+from constants.secrets import Secrets
 
 
 def get_database():

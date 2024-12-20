@@ -1,9 +1,9 @@
 import asyncio
 from itertools import chain
 
-from db import get_database, insert_jobs
-from notification import send_notification
-from scrapper import scrap_sources
+from storage.db import get_database, insert_jobs
+from notification.telegram import send_notification
+from utils.scrapper import scrap_sources
 
 
 def get_jobs():

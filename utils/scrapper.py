@@ -2,11 +2,15 @@ from typing import Any
 
 import requests
 import json
-from parser import parse_associated, parse_compass, parse_union
+
+from parsers.associated_students import parse_associated
+from parsers.compass import parse_compass
+from parsers.student_union import parse_union
+
 
 def scrap_sources() -> list[list[dict[str, Any]]]:
     jobs = []
-    with open('sources.json', 'r') as file:
+    with open('constants/sources.json', 'r') as file:
         sources = json.load(file)
         for source in sources:
             url = sources[source]
