@@ -53,9 +53,9 @@ The script will periodically check for new job postings from the defined sources
 ## Contributing
 Feel free to fork this repository and submit pull requests with improvements or additional features. Whether it's fixing bugs, adding new sources, or improving the notification format, contributions are welcome!
 
-## Authors
- 
-* [**Abhi Jain**](https://www.linkedin.com/in/abhi-jain)
+## Author 
+[**Abhi Jain**](https://www.linkedin.com/in/abhi-jain)
 
 ![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)
+![ForTheBadge_made-with-python](https://ForTheBadge.com/images/badges/made-with-python.svg)
 ![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
