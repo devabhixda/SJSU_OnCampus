@@ -1,7 +1,7 @@
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 
 from constants.secrets import Secrets
-from utils.utils import date_convert_iso
+from utils.utils import date_convert_iso, get_pst
 
 
 def format_job_message(job):
@@ -32,4 +32,8 @@ async def send_notification(job_notification):
         except Exception as e:
             print(f"Error sending message: {e}")
     if not job_notification:
-        await bot.send_message(chat_id=Secrets.chat_id, text="No new Job Openings!")
+        message = (
+            f"No new openings found\n\n"
+            f"🕒 Last fetched at {get_pst()}\n"
+        )
+        await bot.send_message(chat_id=Secrets.chat_id, text=message)
