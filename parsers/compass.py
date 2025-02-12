@@ -11,16 +11,17 @@ def parse_compass(content: bytes) -> list[dict[str, Any]]:
     data = soup.find('ul', id='job-tile-list')
     job_listings = []
 
-    for job in data.find_all('li', class_='job-tile'):
-        title = job.find('span', class_='title').text.strip()
-        date = job.find('div', id=lambda x: x and x.endswith('-section-date-value')).text.strip()
-        link = job.find('a', class_='jobTitle-link')['href']
+    if data:
+        for job in data.find_all('li', class_='job-tile'):
+            title = job.find('span', class_='title').text.strip()
+            date = job.find('div', id=lambda x: x and x.endswith('-section-date-value')).text.strip()
+            link = job.find('a', class_='jobTitle-link')['href']
 
-        job_listings.append({
-            'title': title,
-            'date': date_convert_str(date),
-            'id': link.split('/')[-2],
-            'link': compass_base_url + link
-        })
+            job_listings.append({
+                'title': title,
+                'date': date_convert_str(date),
+                'id': link.split('/')[-2],
+                'link': compass_base_url + link
+            })
 
     return job_listings
